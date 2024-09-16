@@ -1,37 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Realtime Data</title>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-    <script>
-        // Configurer Firebase
-        var firebaseConfig = {
-            apiKey: "AIzaSyA1-UsNJbpG_zY0qYY0l2fDRVVVC_rQTuQ",
-            authDomain: "safe-route-tech.firebaseapp.com",
-            databaseURL: "https://safe-route-tech.firebaseio.com/",
-            projectId: "safe-route-tech",
-            storageBucket: "safe-route-tech.appspot.com",
-            messagingSenderId: "819049700031",
-            appId: "1:819049700031:web:f8a81410a573bf29b8440a",
-            measurementId: "G-GGTTVCB57H"
-        };
-        firebase.initializeApp(firebaseConfig);
-
-        var database = firebase.database();
-
-        function fetchData() {
-            database.ref('path/to/data').on('value', function(snapshot) {
-                var data = snapshot.val();
-                document.getElementById('data').innerText = JSON.stringify(data);
-            });
-        }
-
-        window.onload = fetchData;
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface d'Accueil des Chauffeurs</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importer les SDK Firebase (version UMD) -->
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js"></script>
+    <script defer src="app.js"></script>
 </head>
 <body>
-    <h1>Realtime Data</h1>
-    <pre id="data">Loading...</pre>
+    <header>
+        <h1>Accueil Chauffeurs</h1>
+    </header>
+    <main>
+        <div id="drivers-list">
+            <!-- Les données des chauffeurs seront insérées ici -->
+        </div>
+    </main>
 </body>
 </html>
